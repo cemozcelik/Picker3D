@@ -4,13 +4,13 @@ using UnityEngine.Events;
 
 public class CoreGameSignals : MonoBehaviour
 {
-    #region Singelton
+    #region Singleton 
 
     public static CoreGameSignals Instance;
 
-    public void Awake()
+    private void Awake()
     {
-        if(Instance != null && Instance != this)
+        if (Instance != null && Instance != this)
         {
             Debug.LogWarning(Instance.GetInstanceID().ToString());
             Destroy(gameObject);
@@ -22,6 +22,7 @@ public class CoreGameSignals : MonoBehaviour
 
     #endregion
 
+
     public UnityAction<GameStates> onChangeGameState = delegate { };
     public UnityAction<int> onLevelInitialize = delegate { };
     public UnityAction onClearActiveLevel = delegate { };
@@ -29,6 +30,7 @@ public class CoreGameSignals : MonoBehaviour
     public UnityAction onLevelFailed = delegate { };
     public UnityAction onNextLevel = delegate { };
     public UnityAction onRestartLevel = delegate { };
+    public UnityAction onPlay = delegate { };
     public UnityAction onReset = delegate { };
-}
 
+}
