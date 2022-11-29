@@ -89,6 +89,7 @@ namespace Managers
         private void Start()
         {
             _levelLoaderCommand.Execute(levelID);
+
         }
 
         private void OnNextLevel()
