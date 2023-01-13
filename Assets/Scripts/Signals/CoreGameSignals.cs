@@ -19,4 +19,5 @@ public class CoreGameSignals : MonoSingleton<CoreGameSignals>
 
     public UnityAction<int> onStageAreaSuccessful = delegate { };
     public UnityAction onStageAreaEntered = delegate { };
+    public UnityAction onFinishAreaEntered = delegate { };
 }

@@ -6,6 +6,7 @@ using Signals;
 using Sirenix.OdinInspector;
 using System;
 using UnityEngine;
+using Commands.Player;
 
 namespace Managers
 {
@@ -16,6 +17,8 @@ namespace Managers
         #region Public Variables
 
         public byte StageValue = 0;
+
+        internal ForceBallsToPoolCommand ForceCommand;
 
         #endregion
 
@@ -39,6 +42,12 @@ namespace Managers
         {
             _data = GetPlayerData();
             SendDataToControllers();
+            Init();
+        }
+
+        private void Init()
+        {
+            ForceCommand = new ForceBallsToPoolCommand(this, _data.MovementData);
         }
 
         private PlayerData GetPlayerData()
@@ -66,6 +75,7 @@ namespace Managers
             CoreGameSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
             CoreGameSignals.Instance.onLevelFailed += OnLevelFailed;
             CoreGameSignals.Instance.onStageAreaEntered += OnStageAreaEntered;
+            CoreGameSignals.Instance.onFinishAreaEntered += OnFinishAreaEntered;
             CoreGameSignals.Instance.onStageAreaSuccessful += OnStageAreaSuccessful;
             CoreGameSignals.Instance.onReset += OnReset;
         }
@@ -79,6 +89,7 @@ namespace Managers
             CoreGameSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
             CoreGameSignals.Instance.onLevelFailed -= OnLevelFailed;
             CoreGameSignals.Instance.onStageAreaEntered -= OnStageAreaEntered;
+            CoreGameSignals.Instance.onFinishAreaEntered -= OnFinishAreaEntered;
             CoreGameSignals.Instance.onStageAreaSuccessful -= OnStageAreaSuccessful;
             CoreGameSignals.Instance.onReset -= OnReset;
         }
@@ -125,6 +136,13 @@ namespace Managers
         {
             StageValue = (byte)++value;
             movementController.IsReadyToPlay(true);
+            meshController.ScaleUpPlayer();
+            meshController.ShowUpText();
+        }
+
+        private void OnFinishAreaEntered()
+        {
+            movementController.IsReadyToPlay(false);
         }
 
         private void OnReset()

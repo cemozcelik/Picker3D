@@ -1,5 +1,4 @@
-using Command;
-using Commands;
+using Commands.Level;
 using Data.UnityObjects;
 using UnityEngine;
 
@@ -25,7 +24,7 @@ namespace Managers
         private CD_Level _levelData;
 
         private OnLevelLoaderCommand _levelLoaderCommand;
-        private OnlevelDestroyerCommand _levelDestroyerCommand;
+        private OnLevelDestroyerCommand _levelDestroyerCommand;
 
         #endregion
 
@@ -57,7 +56,7 @@ namespace Managers
         private void Init()
         {
             _levelLoaderCommand = new OnLevelLoaderCommand(levelHolder);
-            _levelDestroyerCommand = new OnlevelDestroyerCommand(levelHolder);
+            _levelDestroyerCommand = new OnLevelDestroyerCommand(levelHolder);
         }
 
         private void OnEnable()
