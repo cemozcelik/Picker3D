@@ -1,10 +1,10 @@
-using UnityEngine;
+using Extensions;
 using UnityEngine.Events;
 using Keys;
 
-namespace Assets.Scripts.Signals
+namespace Signals
 {
-    public class InputSignals : MonoBehaviour
+    public class InputSignals : MonoSingleton<InputSignals>
     {
         public UnityAction onFirstTimeTouchTaken = delegate { };
         public UnityAction onInputReleased = delegate { };
