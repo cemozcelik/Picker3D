@@ -1,4 +1,6 @@
 using Managers;
+using Signals;
+using Signals;
 using UnityEngine;
 
 namespace Controllers.Player
@@ -16,6 +18,15 @@ namespace Controllers.Player
         #endregion
 
         #endregion
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("StageArea"))
+            {
+                CoreGameSignals.Instance.onStageAreaEntered?.Invoke();
+                InputSignals.Instance.onDisableInput?.Invoke();
+            }
+        }
 
         public void OnReset()
         {

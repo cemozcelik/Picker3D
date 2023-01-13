@@ -14,4 +14,7 @@ public class CoreGameSignals : MonoSingleton<CoreGameSignals>
     public UnityAction onRestartLevel = delegate { };
     public UnityAction onPlay = delegate { };
     public UnityAction onReset = delegate { };
+
+    public UnityAction onStageAreaSuccessful = delegate { };
+    public UnityAction onStageAreaEntered = delegate { };
 }
