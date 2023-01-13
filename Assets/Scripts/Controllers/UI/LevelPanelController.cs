@@ -5,7 +5,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
-using DG.Tweening;
 
 public class LevelPanelController : MonoBehaviour
 {
@@ -14,6 +13,7 @@ public class LevelPanelController : MonoBehaviour
     #region Serialized Variables
 
     [SerializeField] private List<TextMeshProUGUI> levelTexts = new List<TextMeshProUGUI> ();
+    [Space]
     [SerializeField] private List<Image> stageImages = new List<Image>();
 
     #endregion
@@ -28,13 +28,13 @@ public class LevelPanelController : MonoBehaviour
     private void SubscribeEvents()
     {
         UISignals.Instance.onSetNewLevelValue += OnSetNewLevelValue;
-        UISignals.Instance.onUpdateStageColor += OnUpdateStageColor;
+        UISignals.Instance.onUpdateStageColor += OnSetStageColor;
     }
 
     private void UnSubscribeEvents()
     {
         UISignals.Instance.onSetNewLevelValue -= OnSetNewLevelValue;
-        UISignals.Instance.onUpdateStageColor -= OnUpdateStageColor;
+        UISignals.Instance.onUpdateStageColor -= OnSetStageColor;
     }
 
     private void OnDisable()
@@ -50,8 +50,8 @@ public class LevelPanelController : MonoBehaviour
         levelTexts[1].text = value.ToString();
     }
 
-    [Button("OnUpdateStageColor")]
-    private void OnUpdateStageColor(int value)
+    [Button("OnSetStageColor")]
+    private void OnSetStageColor(int value)
     {
         stageImages[value].DOColor(Color.red, .35f).SetEase(Ease.Linear);
     }

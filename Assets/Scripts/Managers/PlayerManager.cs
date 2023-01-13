@@ -91,6 +91,7 @@ namespace Managers
         {
             movementController.IsReadyToMove(true);
         }
+
         private void OnInputDragged(HorizontalInputParams inputParams)
         {
             movementController.UpdateInputParams(inputParams);

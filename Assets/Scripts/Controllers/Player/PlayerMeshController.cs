@@ -24,14 +24,14 @@ namespace Controllers.Player
 
         #endregion
 
-        public void OnReset()
-        {
-
-        }
-
-        public void GetMeshData(ScaleData scaleData)
+        internal void GetMeshData(ScaleData scaleData)
         {
             _data = scaleData;
+        }
+
+        internal void OnReset()
+        {
+
         }
     }
 }

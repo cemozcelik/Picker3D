@@ -28,7 +28,7 @@ namespace Controllers.Player
             }
         }
 
-        public void OnReset()
+        internal void OnReset()
         {
 
         }
