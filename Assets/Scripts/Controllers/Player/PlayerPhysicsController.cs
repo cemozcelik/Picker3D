@@ -49,10 +49,10 @@ namespace Controllers.Player
                 return;
             }
 
-            if (other.CompareTag("MiniGame"))
-            {
+            //if (other.CompareTag("MiniGame"))
+            //{
                 //Write Mini Game Conditions
-            }
+            //}
         }
 
         private void OnDrawGizmos()

@@ -1,10 +1,11 @@
-using UnityEngine;
 using System.Collections.Generic;
-using Sirenix.OdinInspector;
-using Signals;
 using System.Linq;
+using Enums;
+using Signals;
+using Sirenix.OdinInspector;
+using UnityEngine;
 
-namespace Controller.UI
+namespace Controllers
 {
     public class UIPanelController : MonoBehaviour
     {
@@ -22,31 +23,34 @@ namespace Controller.UI
         {
             SubscribeEvents();
         }
+
         private void SubscribeEvents()
         {
             CoreUISignals.Instance.onOpenPanel += OnOpenPanel;
             CoreUISignals.Instance.onClosePanel += OnClosePanel;
             CoreUISignals.Instance.onCloseAllPanels += OnCloseAllPanels;
         }
-        private void UnsubsribeEvents()
+
+        private void UnsubscribeEvents()
         {
             CoreUISignals.Instance.onOpenPanel -= OnOpenPanel;
             CoreUISignals.Instance.onClosePanel -= OnClosePanel;
             CoreUISignals.Instance.onCloseAllPanels -= OnCloseAllPanels;
         }
+
         private void OnDisable()
         {
-            UnsubsribeEvents();
+            UnsubscribeEvents();
         }
 
-        //[Button("OnOpenPanel")]
+        [Button("OnOpenPanel")]
         private void OnOpenPanel(UIPanelTypes type, int layerValue)
         {
             OnClosePanel(layerValue);
             Instantiate(Resources.Load<GameObject>($"Screens/{type}Panel"), layers[layerValue]);
         }
 
-        //[Button("OnClosePanel")]
+        [Button("OnClosePanel")]
         private void OnClosePanel(int layerValue)
         {
             if (layers[layerValue].childCount > 0)
@@ -55,7 +59,7 @@ namespace Controller.UI
             }
         }
 
-        [Button("OnCloseAllPanels")]
+        [Button("OnCloseAllPanel")]
         private void OnCloseAllPanels()
         {
             foreach (var t in layers.Where(t => t.childCount > 0))
@@ -64,5 +68,4 @@ namespace Controller.UI
             }
         }
     }
-
 }
