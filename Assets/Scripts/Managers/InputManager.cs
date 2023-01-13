@@ -7,7 +7,6 @@ using Sirenix.OdinInspector;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using Signals;
 using UnityEditor.Presets;
 
 namespace Managers
