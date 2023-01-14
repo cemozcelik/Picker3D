@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 
-
 namespace Data.ValueObjects
 {
     [Serializable]
@@ -13,8 +12,8 @@ namespace Data.ValueObjects
         {
             PoolList = datas;
         }
-        
     }
+
     [Serializable]
     public struct PoolData
     {

@@ -1,6 +1,6 @@
-using Extensions;
-using UnityEngine.Events;
+﻿using Extensions;
 using Keys;
+using UnityEngine.Events;
 
 namespace Signals
 {
@@ -9,8 +9,8 @@ namespace Signals
         public UnityAction onEnableInput = delegate { };
         public UnityAction onDisableInput = delegate { };
         public UnityAction onFirstTimeTouchTaken = delegate { };
-        public UnityAction onInputReleased = delegate { };
         public UnityAction onInputTaken = delegate { };
-        public UnityAction<HorizontalInputParams> onInputDragged = delegate { };
+        public UnityAction onInputReleased = delegate { };
+        public UnityAction<HorizontalnputParams> onInputDragged = delegate { };
     }
 }

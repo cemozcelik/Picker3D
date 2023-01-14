@@ -26,58 +26,59 @@ namespace Extensions
                     switch (LockAxis)
                     {
                         case CinemachineLockAxis.XValue:
-                            {
-                                var pos = state.RawPosition;
-                                pos.x = m_Position;
-                                state.RawPosition = pos;
-                            }
+                        {
+                            var pos = state.RawPosition;
+                            pos.x = m_Position;
+                            state.RawPosition = pos;
+                        }
                             break;
                         case CinemachineLockAxis.YValue:
-                            {
-                                var pos = state.RawPosition;
-                                pos.y = m_Position;
-                                state.RawPosition = pos;
-                            }
+                        {
+                            var pos = state.RawPosition;
+                            pos.y = m_Position;
+                            state.RawPosition = pos;
+                        }
                             break;
                         case CinemachineLockAxis.ZValue:
-                            {
-                                var pos = state.RawPosition;
-                                pos.z = m_Position;
-                                state.RawPosition = pos;
-                            }
+                        {
+                            var pos = state.RawPosition;
+                            pos.z = m_Position;
+                            state.RawPosition = pos;
+                        }
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
-                    break;
 
+                    break;
                 case CinemachineCoreType.Aim:
                     switch (LockAxis)
                     {
                         case CinemachineLockAxis.XValue:
-                            {
-                                var pos = state.RawOrientation;
-                                pos.x = m_Position;
-                                state.RawOrientation = pos;
-                            }
+                        {
+                            var pos = state.RawOrientation;
+                            pos.x = m_Position;
+                            state.RawOrientation = pos;
+                        }
                             break;
                         case CinemachineLockAxis.YValue:
-                            {
-                                var pos = state.RawOrientation;
-                                pos.y = m_Position;
-                                state.RawOrientation = pos;
-                            }
+                        {
+                            var pos = state.RawOrientation;
+                            pos.y = m_Position;
+                            state.RawOrientation = pos;
+                        }
                             break;
                         case CinemachineLockAxis.ZValue:
-                            {
-                                var pos = state.RawOrientation;
-                                pos.z = m_Position;
-                                state.RawOrientation = pos;
-                            }
+                        {
+                            var pos = state.RawOrientation;
+                            pos.z = m_Position;
+                            state.RawOrientation = pos;
+                        }
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
+
                     break;
             }
         }

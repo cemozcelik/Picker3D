@@ -1,5 +1,5 @@
-using Managers;
 using Enums;
+using Managers;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,6 +33,11 @@ public class UIEventSubscriber : MonoBehaviour
         _manager = FindObjectOfType<UIManager>();
     }
 
+    private void OnEnable()
+    {
+        SubscribeEvents();
+    }
+
     private void SubscribeEvents()
     {
         switch (type)
@@ -52,7 +57,6 @@ public class UIEventSubscriber : MonoBehaviour
                     button.onClick.AddListener(_manager.RestartLevel);
                     break;
                 }
-
         }
     }
 
@@ -76,10 +80,11 @@ public class UIEventSubscriber : MonoBehaviour
                     break;
                 }
         }
-        
     }
+
     private void OnDisable()
     {
         UnSubscribeEvents();
     }
 }
+

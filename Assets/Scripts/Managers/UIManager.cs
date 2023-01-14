@@ -1,7 +1,6 @@
-using System;
-using UnityEngine;
+using Enums;
 using Signals;
-using UnityEditor.Presets;
+using UnityEngine;
 
 namespace Managers
 {
@@ -13,7 +12,7 @@ namespace Managers
 
         #endregion
 
-        #region Serialized Variables 
+        #region Serialized Variables
 
         #endregion
 
@@ -21,8 +20,7 @@ namespace Managers
 
         #endregion
 
-        #endregion 
-
+        #endregion
 
         private void OnEnable()
         {
@@ -32,19 +30,18 @@ namespace Managers
         private void SubscribeEvents()
         {
             CoreGameSignals.Instance.onLevelInitialize += OnLevelInitialize;
-            CoreGameSignals.Instance.onLevelSuccessful += OnLevelSuccesful;
+            CoreGameSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
             CoreGameSignals.Instance.onLevelFailed += OnLevelFailed;
             CoreGameSignals.Instance.onReset += OnReset;
         }
 
         private void UnSubscribeEvents()
         {
-            CoreGameSignals.Instance.onLevelSuccessful -= OnLevelSuccesful;
             CoreGameSignals.Instance.onLevelInitialize -= OnLevelInitialize;
+            CoreGameSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
             CoreGameSignals.Instance.onLevelFailed -= OnLevelFailed;
             CoreGameSignals.Instance.onReset -= OnReset;
         }
-
 
         private void OnDisable()
         {
@@ -57,7 +54,7 @@ namespace Managers
             UISignals.Instance.onSetNewLevelValue?.Invoke(levelValue);
         }
 
-        private void OnLevelSuccesful()
+        private void OnLevelSuccessful()
         {
             CoreUISignals.Instance.onOpenPanel?.Invoke(UIPanelTypes.Win, 2);
         }
@@ -66,6 +63,7 @@ namespace Managers
         {
             CoreUISignals.Instance.onOpenPanel?.Invoke(UIPanelTypes.Fail, 2);
         }
+
         public void NextLevel()
         {
             CoreGameSignals.Instance.onNextLevel?.Invoke();

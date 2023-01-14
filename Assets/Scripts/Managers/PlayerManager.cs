@@ -1,12 +1,11 @@
+using Commands.Player;
 using Controllers.Player;
 using Data.UnityObjects;
 using Data.ValueObjects;
 using Keys;
 using Signals;
 using Sirenix.OdinInspector;
-using System;
 using UnityEngine;
-using Commands.Player;
 
 namespace Managers
 {
@@ -98,7 +97,7 @@ namespace Managers
         {
             UnSubscribeEvents();
         }
-        
+
         private void OnPlay()
         {
             movementController.IsReadyToPlay(true);
@@ -109,7 +108,7 @@ namespace Managers
             movementController.IsReadyToMove(true);
         }
 
-        private void OnInputDragged(HorizontalInputParams inputParams)
+        private void OnInputDragged(HorizontalnputParams inputParams)
         {
             movementController.UpdateInputParams(inputParams);
         }
@@ -123,6 +122,7 @@ namespace Managers
         {
             movementController.IsReadyToPlay(false);
         }
+
         private void OnLevelFailed()
         {
             movementController.IsReadyToPlay(false);
@@ -132,12 +132,14 @@ namespace Managers
         {
             movementController.IsReadyToPlay(false);
         }
+
         private void OnStageAreaSuccessful(int value)
         {
             StageValue = (byte)++value;
             movementController.IsReadyToPlay(true);
             meshController.ScaleUpPlayer();
             meshController.ShowUpText();
+            meshController.PlayConfetiParticle();
         }
 
         private void OnFinishAreaEntered()

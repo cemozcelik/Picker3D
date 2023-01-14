@@ -6,6 +6,6 @@ namespace Signals
     public class UISignals : MonoSingleton<UISignals>
     {
         public UnityAction<int> onSetNewLevelValue = delegate { };
-        public UnityAction<int> onUpdateStageColor = delegate { };
+        public UnityAction<int> onSetStageColor = delegate { };
     }
 }

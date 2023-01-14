@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+
     private void Awake()
     {
         Application.targetFrameRate = 60;
@@ -44,5 +45,4 @@ public class GameManager : MonoBehaviour
     {
         states = state;
     }
-
 }

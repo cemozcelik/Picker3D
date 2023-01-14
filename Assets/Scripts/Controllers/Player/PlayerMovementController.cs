@@ -31,7 +31,7 @@ namespace Controllers.Player
 
         #endregion
 
-        public void GetMovementData(MovementData movementData)
+        internal void GetMovementData(MovementData movementData)
         {
             _data = movementData;
         }
@@ -49,6 +49,7 @@ namespace Controllers.Player
                 MovePlayer();
             }
             else StopPlayerHorizontaly();
+
         }
 
         private void StopPlayerHorizontaly()
@@ -88,8 +89,7 @@ namespace Controllers.Player
         {
             _isReadyToMove = condition;
         }
-
-        internal void UpdateInputParams(HorizontalInputParams inputParams)
+        internal void UpdateInputParams(HorizontalnputParams inputParams)
         {
             _xValue = inputParams.HorizontalInputValue;
             _clampValues = new float2(inputParams.HorizontalInputClampNegativeSide,

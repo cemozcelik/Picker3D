@@ -1,12 +1,12 @@
 using Interfaces;
 using UnityEngine;
 
-
 namespace Commands.Level
 {
     public class OnLevelDestroyerCommand : ICommand
     {
-        private Transform _levelHolder;
+        private readonly Transform _levelHolder;
+
         public OnLevelDestroyerCommand(Transform levelHolder)
         {
             _levelHolder = levelHolder;
@@ -20,6 +20,5 @@ namespace Commands.Level
         public void Execute(int value)
         {
         }
-
     }
 }

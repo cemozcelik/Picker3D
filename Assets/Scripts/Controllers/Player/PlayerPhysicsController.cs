@@ -1,7 +1,7 @@
-using Managers;
-using Signals;
 using Controllers.Pool;
 using DG.Tweening;
+using Managers;
+using Signals;
 using UnityEngine;
 
 namespace Controllers.Player
@@ -65,7 +65,6 @@ namespace Controllers.Player
 
         internal void OnReset()
         {
-
         }
     }
 }
