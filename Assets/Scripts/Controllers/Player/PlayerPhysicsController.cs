@@ -2,6 +2,7 @@ using Controllers.Pool;
 using DG.Tweening;
 using Managers;
 using Signals;
+using System.Collections;
 using UnityEngine;
 
 namespace Controllers.Player
@@ -49,10 +50,24 @@ namespace Controllers.Player
                 return;
             }
 
-            //if (other.CompareTag("MiniGame"))
-            //{
+
+            if (other.CompareTag("MinigameArea"))
+            {
+                StartCoroutine(MinigameFinish());
                 //Write Mini Game Conditions
-            //}
+            }
+        }
+
+        IEnumerator MinigameFinish()
+        {
+            float collectedCount = PlayerPrefs.GetInt("TotalCollectedCount", 0);
+
+            yield return new WaitForSecondsRealtime(collectedCount / 10f);
+
+            InputSignals.Instance.onDisableInput?.Invoke();
+            CoreGameSignals.Instance.onFinishAreaEntered?.Invoke();
+
+            CoreGameSignals.Instance.onLevelSuccessful?.Invoke();
         }
 
         private void OnDrawGizmos()

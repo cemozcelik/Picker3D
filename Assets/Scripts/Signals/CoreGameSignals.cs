@@ -21,5 +21,6 @@ namespace Signals
         public UnityAction<int> onStageAreaSuccessful = delegate { };
         public UnityAction onStageAreaEntered = delegate { };
         public UnityAction onFinishAreaEntered = delegate { };
+        public UnityAction onMinigameEntered = delegate { };
     }
 }

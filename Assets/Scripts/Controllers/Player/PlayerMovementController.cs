@@ -64,7 +64,7 @@ namespace Controllers.Player
             velocity = new float3(_xValue * _data.SidewaysSpeed, velocity.y,
                 _data.ForwardSpeed);
             rigidbody.velocity = velocity;
-
+         
             float3 position;
             position = new float3(
                 Mathf.Clamp(rigidbody.position.x, _clampValues.x,
