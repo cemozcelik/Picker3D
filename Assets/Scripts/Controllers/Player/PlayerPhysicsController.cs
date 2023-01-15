@@ -4,6 +4,7 @@ using Managers;
 using Signals;
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 namespace Controllers.Player
 {
@@ -54,7 +55,6 @@ namespace Controllers.Player
             if (other.CompareTag("MinigameArea"))
             {
                 StartCoroutine(MinigameFinish());
-                //Write Mini Game Conditions
             }
         }
 
@@ -67,7 +67,12 @@ namespace Controllers.Player
             InputSignals.Instance.onDisableInput?.Invoke();
             CoreGameSignals.Instance.onFinishAreaEntered?.Invoke();
 
+            float position = GameObject.Find("PlayerManager").transform.position.z;
+            float score = Mathf.RoundToInt(position);
+
             CoreGameSignals.Instance.onLevelSuccessful?.Invoke();
+
+            GameObject.Find("TXTScore").GetComponent<TextMeshProUGUI>().text = ("Score: " + score.ToString());
         }
 
         private void OnDrawGizmos()
@@ -80,6 +85,7 @@ namespace Controllers.Player
 
         internal void OnReset()
         {
+
         }
     }
 }

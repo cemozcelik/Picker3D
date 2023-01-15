@@ -45,11 +45,6 @@ namespace Controllers.Pool
             }
         }
 
-        private void Update()
-        {
-            Debug.Log(PlayerPrefs.GetInt("TotalCollectedCount"));
-        }
-
         private PoolData GetPoolData()
         {
             return Resources.Load<CD_Level>("Data/CD_Level")
